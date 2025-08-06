@@ -41,11 +41,3 @@ It was built as a **fullstack technical challenge**, featuring:
 - ✅ **Karma + Jasmine**: Angular's default unit testing suite.
 
 ---
-
-## 🧪 Tests
-
-### Backend (Jest)
-```bash
-cd backend
-npm install
-npm run test
