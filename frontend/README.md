@@ -1,10 +1,50 @@
-# Frontend
+<p align="center">
+  <img src="https://angular.io/assets/images/logos/angular/angular.svg" width="120" alt="Angular logo"/>
+</p>
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.15.
+<h1 align="center">Golden Raspberry Awards - Frontend</h1>
 
-## Development server
+<p align="center">
+  Frontend application built with <strong>Angular</strong>, styled with <strong>Tailwind CSS</strong>, and tested with <strong>Karma + Jasmine</strong>.
+</p>
 
-To start a local development server, run:
+<p align="center">
+  <img src="https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white" />
+  <img src="https://img.shields.io/badge/TailwindCSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white" />
+  <img src="https://img.shields.io/badge/Karma-5DDB60?style=for-the-badge&logo=karma&logoColor=white" />
+  <img src="https://img.shields.io/badge/Jasmine-8A4182?style=for-the-badge&logo=jasmine&logoColor=white" />
+</p>
+
+---
+
+## 📌 Overview
+
+This Angular application provides:
+
+- 📊 A **dashboard** with insights from the Golden Raspberry Awards
+- 📋 A **list view** with filters, pagination and results
+- 🎯 Dynamic UI with router-aware navigation and visual feedback
+- 💅 Custom styles powered by **Tailwind CSS**
+
+---
+
+## 📂 Tech Stack
+
+- **Angular** 19
+- **Tailwind CSS**
+- **Standalone Components**
+- **RouterLinkActive + Dynamic Menus**
+- **Karma + Jasmine** for unit testing
+
+---
+
+## 🚀 Running Locally
+
+Install dependencies:
+
+```bash
+npm install
+```
 
 ```bash
 ng serve
