@@ -1,15 +1,15 @@
-import { TestBed } from '@angular/core/testing';
-import { AppComponent } from './app.component';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { SidebarComponent } from './sidebar.component';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { of } from 'rxjs';
 
-describe('AppComponent', () => {
+describe('SidebarComponent', () => {
+  let component: SidebarComponent;
+  let fixture: ComponentFixture<SidebarComponent>;
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [
-        AppComponent,
-        RouterModule,
-      ],
+      imports: [SidebarComponent, RouterModule],
       providers: [
         {
           provide: ActivatedRoute,
@@ -23,12 +23,13 @@ describe('AppComponent', () => {
         },
       ],
     }).compileComponents();
+
+    fixture = TestBed.createComponent(SidebarComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
   });
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const compiled = fixture.nativeElement as HTMLElement;
-    fixture.detectChanges();
-    expect(compiled.textContent).toContain('Golden Raspberry Awards');
+  it('should create', () => {
+    expect(component).toBeTruthy();
   });
 });
