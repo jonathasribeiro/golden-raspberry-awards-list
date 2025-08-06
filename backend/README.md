@@ -28,8 +28,6 @@ This service provides:
 - 👨‍💼 Producers with longest and shortest intervals between wins
 - 🎬 Movie winners by year
 
-It serves as the backend for the [Golden Raspberry Awards App](../frontend).
-
 ---
 
 ## 📂 Tech Stack
