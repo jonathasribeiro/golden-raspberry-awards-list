@@ -36,7 +36,7 @@ It was built as a **fullstack technical challenge**, featuring:
 - ✅ **Jest**: Unit and integration tests.
 
 ### Frontend
-- ✅ **Angular 17**: Component-based frontend framework.
+- ✅ **Angular 19**: Component-based frontend framework.
 - ✅ **TailwindCSS**: Utility-first CSS framework.
 - ✅ **Karma + Jasmine**: Angular's default unit testing suite.
 
