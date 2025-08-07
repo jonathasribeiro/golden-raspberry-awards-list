@@ -94,7 +94,7 @@ Covers:
 
 Run with:
 ```bash
-# unit tests
+# e2e tests
 $ npm run test:e2e
 ```
 
