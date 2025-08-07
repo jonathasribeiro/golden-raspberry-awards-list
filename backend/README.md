@@ -101,7 +101,7 @@ $ npm run test:e2e
 ### 📊 Coverage Report
 Generate detailed coverage summary:
 ```bash
-# unit tests
+# coverage tests
 $ npm run test:cov
 ```
 All suites are passing with tested logic and edge cases.
