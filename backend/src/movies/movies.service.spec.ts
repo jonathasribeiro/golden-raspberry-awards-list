@@ -1,57 +1,50 @@
-import { Injectable, OnModuleInit } from '@nestjs/common';
-import { InjectRepository } from '@nestjs/typeorm';
+import { Test, TestingModule } from '@nestjs/testing';
+import { MoviesService } from './movies.service';
+import { getRepositoryToken } from '@nestjs/typeorm';
 import { Movie } from './movies.entity';
 import { Repository } from 'typeorm';
-import * as fs from 'fs';
-import * as path from 'path';
-import * as csv from 'csv-parser';
-import { existsSync } from 'fs';
 
-@Injectable()
-export class MoviesService implements OnModuleInit {
-  constructor(
-    @InjectRepository(Movie)
-    private readonly movieRepository: Repository<Movie>,
-  ) {}
+describe('MoviesService', () => {
+  let service: MoviesService;
+  let movieRepo: Repository<Movie>;
 
-  async onModuleInit() {
-    let filePath = path.resolve(__dirname, '..', 'assets', 'movielist.csv');
+  beforeEach(async () => {
+    jest.clearAllMocks();
 
-    if (!existsSync(filePath)) {
-      filePath = path.resolve(
-        __dirname,
-        '..',
-        '..',
-        'src',
-        'assets',
-        'movielist.csv',
-      );
-    }
-    const movies: Movie[] = [];
+    const mockRepository = {
+      save: jest.fn().mockResolvedValue(undefined),
+    };
 
-    if (!fs.existsSync(filePath)) {
-      console.error(`Arquivo CSV não encontrado: ${filePath}`);
-      return;
-    }
+    const module: TestingModule = await Test.createTestingModule({
+      providers: [
+        MoviesService,
+        {
+          provide: getRepositoryToken(Movie),
+          useValue: mockRepository,
+        },
+      ],
+    }).compile();
 
-    return new Promise<void>((resolve, reject) => {
-      fs.createReadStream(filePath)
-        .pipe(csv())
-        .on('data', (row) => {
-          const movie = new Movie();
-          movie.year = parseInt(row.year);
-          movie.title = row.title;
-          movie.studios = row.studios;
-          movie.producers = row.producers;
-          movie.winner = row.winner?.toLowerCase() === 'yes';
-          movies.push(movie);
-        })
-        .on('end', async () => {
-          await this.movieRepository.save(movies);
-          console.log('CSV importado com sucesso!');
-          resolve();
-        })
-        .on('error', (err) => reject(err));
-    });
-  }
-}
+    service = module.get<MoviesService>(MoviesService);
+    movieRepo = module.get<Repository<Movie>>(getRepositoryToken(Movie));
+  });
+
+  it('should be defined', () => {
+    expect(service).toBeDefined();
+  });
+
+  it('should call movieRepository.save with parsed CSV data', async () => {
+    await service.onModuleInit();
+
+    const saveMock = movieRepo.save as jest.Mock;
+
+    expect(saveMock).toHaveBeenCalledTimes(1);
+
+    const saved = saveMock.mock.calls[0][0];
+    expect(saved.length).toBeGreaterThanOrEqual(1)
+
+    expect(saved[0].title).toBeTruthy();
+    expect(saved[0].year).toBeTruthy();
+    expect(saved[0].winner).toBeTruthy();
+  });
+});

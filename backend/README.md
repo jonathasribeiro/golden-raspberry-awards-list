@@ -14,7 +14,7 @@
   <img src="https://img.shields.io/badge/NestJS-E0234E?style=for-the-badge&logo=nestjs&logoColor=white" />
   <img src="https://img.shields.io/badge/TypeORM-007ACC?style=for-the-badge&logo=typescript&logoColor=white" />
   <img src="https://img.shields.io/badge/SQLite-in--memory-blue?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/Jest-Unit--Tests-C21325?style=for-the-badge&logo=jest&logoColor=white" />
+  <img src="https://img.shields.io/badge/Jest-Tested-brightgreen?style=for-the-badge&logo=jest&logoColor=white" />
 </p>
 
 ---
@@ -28,51 +28,73 @@ This service provides:
 - 👨‍💼 Producers with longest and shortest intervals between wins
 - 🎬 Movie winners by year
 
-It serves as the backend for the [Golden Raspberry Awards App](../frontend).
-
 ---
 
 ## 📂 Tech Stack
 
-- **NestJS** for building the API
-- **TypeORM** with **SQLite in-memory** database
-- **Jest** for testing
+- **NestJS** – Progressive Node.js framework
+- **TypeORM** – ORM for data modeling
+- **SQLite (in-memory)** – Lightweight DB for easy setup and testability
+- **Jest** – Testing framework (unit + e2e)
 
 ---
 
 ## 🚀 Getting Started
 
-### Installation
+### 📦 Installation
 
 ```bash
 $ npm install
 ```
 
-## Running the app
+## ▶️ Running the App
 
 ```bash
-# development
-$ npm run start
+# Development
+npm run start
 
-# watch mode
-$ npm run start:dev
+# Watch mode
+npm run start:dev
 
-# production mode
-$ npm run start:prod
+# Production
+npm run start:prod
 ```
 
-## Test
+## 🧪 Tests
 
+This project includes full backend test coverage using Jest, organized into:
+
+### ✅ Unit Tests
+
+Covers:
+- Services (business logic)
+- Controllers (integration with services)
+
+Run with:
 ```bash
 # unit tests
-$ npm run test
+$ npm run test:unit
+```
 
-# e2e tests
+### 🚀 End-to-End (E2E) Tests
+Covers:
+
+- Real HTTP requests to endpoints like /, /producers/intervals
+- Data integration (CSV-loaded SQLite in-memory DB)
+
+Run with:
+```bash
+# unit tests
 $ npm run test:e2e
+```
 
-# test coverage
+### 📊 Coverage Report
+Generate detailed coverage summary:
+```bash
+# unit tests
 $ npm run test:cov
 ```
+All suites are passing with tested logic and edge cases.
 
 ## Support
 
