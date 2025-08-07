@@ -31,7 +31,6 @@ describe('ProducersService', () => {
   });
 
   it('should return correct min and max intervals', async () => {
-    // Mock de filmes vencedores
     movieRepo.find.mockResolvedValue([
       { year: 2000, producers: 'Producer A', winner: true } as Movie,
       { year: 2003, producers: 'Producer A', winner: true } as Movie,
@@ -55,7 +54,7 @@ describe('ProducersService', () => {
         previousWin: 1990,
         followingWin: 2000,
       },
-    ].filter(i => i.interval === 3)); // Garante só o menor
+    ].filter(i => i.interval === 3));
 
     expect(result.max).toEqual([
       {
