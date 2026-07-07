@@ -31,7 +31,7 @@ export class DashboardDataService {
     return this.http.get<{
       min: ProducerInterval[];
       max: ProducerInterval[];
-    }>(`${this.baseUrl}/maxMinWinIntervalForProducers`);
+    }>(`${environment.localApiUrl}/producers/intervals`);
   }
 
   getWinnersByYear(year: number) {
