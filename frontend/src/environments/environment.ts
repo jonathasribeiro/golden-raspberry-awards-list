@@ -1,5 +1,5 @@
 export const environment = {
   production: false,
-  apiBaseUrl: 'https://challenge.outsera.tech/api/movies',
+  apiBaseUrl: 'http://localhost:3000/movies',
   localApiUrl: 'http://localhost:3000',
 };

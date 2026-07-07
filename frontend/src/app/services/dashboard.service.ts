@@ -17,13 +17,13 @@ export class DashboardDataService {
 
   getYearsWithMultipleWinners() {
     return this.http.get<{ years: YearWinner[] }>(
-      `${this.baseUrl}/yearsWithMultipleWinners`
+      `${environment.localApiUrl}/movies/yearsWithMultipleWinners`,
     );
   }
 
   getTopStudios() {
     return this.http.get<{ studios: StudioWin[] }>(
-      `${this.baseUrl}/studiosWithWinCount`
+      `${environment.localApiUrl}/movies/studiosWithWinCount`,
     );
   }
 
@@ -36,7 +36,7 @@ export class DashboardDataService {
 
   getWinnersByYear(year: number) {
     return this.http.get<MovieWinner[]>(
-      `${this.baseUrl}/winnersByYear?year=${year}`
+      `${environment.localApiUrl}/movies/winnersByYear?year=${year}`,
     );
   }
 
